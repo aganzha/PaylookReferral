@@ -11,10 +11,11 @@ namespace PaylookReferral.Controllers
         public ActionResult Index()
         {
             ViewBag.Message = "Modify this template to jump-start your ASP.NET MVC application.";
-            using (var context = new Entities.Entities())
-            {
-                var cli = context.Clients.Where(cl => cl.Id == 1).FirstOrDefault();
-            }
+            //using (var context = new Entities.Entities())
+            //{
+            //    var cli = context.Clients.Where(cl => cl.Id == 128956).FirstOrDefault();
+            //    cli.FullName += "ass";
+            //}
             return View();
         }
 
