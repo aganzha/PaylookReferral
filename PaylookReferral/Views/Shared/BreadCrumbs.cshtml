@@ -1,0 +1,112 @@
+﻿@using System.Globalization
+@{            
+
+    var sites = ViewBag.Sites as Dictionary<long, string>;
+    
+    var controller = ViewContext.Controller.ValueProvider.GetValue("controller").RawValue as string;
+    var action = ViewContext.Controller.ValueProvider.GetValue("action").RawValue as string;  
+    
+    bool isWeOnSitesList =  !(sites != null && (!(controller.Equals("Site", StringComparison.OrdinalIgnoreCase) && action.Equals("Sites", StringComparison.OrdinalIgnoreCase)) || sites.Count == 1));
+}
+
+<div class="top">    
+    @if (sites != null && sites.Count() <= 1)
+    {
+        <div class="top__title"><span>Добавление сайта</span></div>
+    }
+    else {
+    <div class="top__title @(isWeOnSitesList? "" : "js-sites" )"><span>@(sites != null && sites.Count() > 1 ? ViewBag.Sites[ViewBag.CurrentSiteId] : ViewBag.Title)</span></div>
+    }
+    <nav class="top__nav">
+        <ul>
+            @{
+                var siteID = ViewBag.CurrentSiteId > 0 ? "?siteId=" + ViewBag.CurrentSiteId.ToString() : "";
+                
+                var noCurrentSiteClass = ViewBag.CurrentSiteId > 0 ? string.Empty : "disabled ";
+                
+                //if (Request.Path.ToString().Contains("/Campaign")){
+                //    noCurrentSiteClass = string.Empty;
+                //}
+
+                //if (Request.Path.ToString().Contains("/Stat"))
+                //{
+                //    noCurrentSiteClass = string.Empty;
+                //}
+            }
+            <li><a class="@(Request.Url.LocalPath.ToLower()=="/payments"? "active" : "")" href="/Payments">Платежи</a></li>
+            <li><a class="@(noCurrentSiteClass + (Request.Path.ToString().Contains("/Stat") ? "active" : ""))" 
+                href="@(ViewBag.CurrentScriptId!=null ? "/Stat/PageStat/"+ ViewBag.CurrentScriptId: "/Stat"+siteID)">
+                    Статистика                    
+                </a>                    
+            </li>
+            <li>
+                    <a class="@(noCurrentSiteClass + (Request.Path.ToString().Contains("/Campaign") ? "active" : ""))" 
+                            href="@(ViewBag.CurrentScriptId==null ? "/Campaign"+siteID : "/Campaign/Action/"+ViewBag.CurrentScriptId)">
+                    Управление акциями</a>                    
+            </li>
+            <li><a class="@(noCurrentSiteClass + (Request.Path.ToString().Contains("/Sites/Edit") ? "active" : ""))" href="/Sites/Edit/@(siteID)&returnUrl=@(HttpUtility.UrlEncode(Request.Url.PathAndQuery))">Настройки сайта</a></li>            
+            <li><a class="disabled" href="/Help">Помощь</a></li>
+        </ul>
+    </nav>
+</div>
+@*Не показываем меню с выбором сайта на списке сайтов*@
+@if (!isWeOnSitesList)
+{     
+    <div class="top-sites" style="@(sites.Count() == 1 && this.Request.Url.AbsolutePath.EndsWith("Sites", StringComparison.OrdinalIgnoreCase) ? "display:block;" : "")">
+        <ul class="top-sites__nav">
+            @if (sites.Count() > 1)
+            {
+                <li><a href="/Sites">Все сайты</a></li>
+            }
+            @foreach (var s in sites)
+            {
+                if (s.Key == 0)
+                {
+                    continue;
+                }
+                <li>
+                    <img class="siteFavicon" style="width:16px;height:16px;position:relative;top:5px;" src="http://@(s.Value)/favicon.ico" />
+                    @{
+            
+                var relativeUrl = Request.Url.PathAndQuery;
+                if (String.IsNullOrEmpty(Request.QueryString.Get("siteId")) && ViewBag.CurrentSiteId > 0)
+                {
+                    var parts = relativeUrl.Split('/');
+                    relativeUrl = String.Join("/", parts.Take(parts.Count() - 2));
+                }
+                var cleanUrl = relativeUrl.Split('?')[0];
+                var first = true;
+                foreach (string key in Request.QueryString.Keys)
+                {
+                    if (key == "siteId")
+                    {
+                        continue;
+                    }
+                    if (first)
+                    {
+                        cleanUrl += "?";
+                        first = false;
+                    }
+                    else
+                    {
+                        cleanUrl += "&";
+                    }
+                    cleanUrl += key + "=" + HttpUtility.UrlEncode(Request.QueryString[key]);
+                }
+                if (s.Key > 0)
+                {
+                    cleanUrl += (first ? "?" : "&") + "siteId=" + s.Key.ToString();
+                }                
+                    }
+                    <a style="color:#2f4f9d;text-decoration:underline;font-weight:bold;" href="@cleanUrl">@s.Value</a>
+                </li>
+            }
+            @if (sites.Count() <= 1)
+            {
+                <li id="hasNoSites"><span>Для создания акции сначала нужно</span></li>
+            }
+@*<span id="hasNoSites" style="display: none;">Для создания акции сначала нужно</span>*@
+        </ul>
+        <button class="btn-middle go" href="/Sites/AddSite?returnUrl=@this.Request.Url.AbsoluteUri"><strong>+ Добавить сайт</strong></button>
+    </div>
+}

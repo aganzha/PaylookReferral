@@ -1,0 +1,19 @@
+﻿<div style="float:right;">
+    <div>
+        <a href="/account/logoff">Выход</a> 
+    </div>
+    <div>
+        @if(Request.IsAuthenticated) {
+            <strong>@User.Identity.Name</strong>
+        }
+    </div>
+</div>
+
+<div style="clear:both;"></div>
+
+<div style="float:right;">
+    <a href="/Sites">Сайты</a>
+    <a href="/Campaign">Акции</a>
+    <a href="/Stat">Статистика</a>    
+</div>
+<div style="clear:both;"></div>

@@ -1,0 +1,100 @@
+﻿body {
+}
+.table {
+    margin-top:20px;
+}
+.detail .details {
+    width:500px;
+}
+.details {
+    width:300px;
+}
+.col {
+    float:left;
+    margin-left:10px;
+}
+.row {
+    margin:10px;
+}
+.cell {
+    width:80px;
+    text-align:center;
+}
+.descr {
+    max-width:100px;
+    overflow:hidden;
+    white-space:nowrap;
+    text-overflow:ellipsis;
+}
+
+.tr .details {
+    cursor:pointer;
+}
+.users {
+    display:none;
+}
+.subrow {
+    margin:5px 0 0 0;
+}
+.subrow .details {
+    width:230px;    
+    padding:0 0 0 70px;
+}
+.detail .subrow .details {
+    width:430px;    
+    padding:0 0 0 70px;
+}
+
+.select-button{        
+       cursor:pointer;
+       border-radius:3px;
+       padding:5px;
+}
+.select-button.float {
+    margin-left:5px;
+    float:left;
+}
+
+.select-button.active{
+    border:1px solid grey;
+}
+
+.widgetColor {
+    width:20px;
+    height:20px;
+    float:left;
+}
+#widgetColor-1{
+    background-color:yellow;    
+}
+#widgetColor-2 {
+    background-color:blue;
+}
+.widgetColor {
+    cursor:pointer;
+}
+.widgetColor.active {
+    border:1px solid red;
+}
+
+span.back {
+    cursor:pointer;
+    text-decoration:underline;
+}
+.editor-field {
+    float:left;
+}
+.editor-field:after {
+    clear:both;
+}
+.editor-label {
+    float:left;
+    width:200px;
+    min-height:1px;
+}
+.masterButton {
+    float:left;
+    margin:5px;
+    border:1px solid grey;
+    padding:5px;    
+}

@@ -1,0 +1,15 @@
+﻿<div>
+   @if (@ViewBag.CurrentSite != null)
+   {
+     <span>Детализация</span>
+    <a style="margin-left: 10px;" href="/Stat/PageStat/@ViewBag.CurrentSite.Id">По страницам</a>
+        if (Request.Url.ToString().Contains("PageDetail"))
+        {
+            <span>-> каф с листьями</span>
+        }
+        else
+        {
+            <a style="margin-left: 10px;" href="/Stat/UserStat/@ViewBag.CurrentSite.Id">По пользователям</a>
+        }
+   }
+</div>

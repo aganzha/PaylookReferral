@@ -1,0 +1,25 @@
+﻿* html .u1_normal {
+    background-image: none;
+    filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src="payment_files/u1_normal.png");
+}
+
+* html .u6_line {
+    background-image: none;
+    filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src="payment_files/u6_line.png");
+}
+
+* html .u9_normal {
+    background-image: none;
+    filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src="payment_files/u9_normal.png");
+}
+
+* html .u22_line {
+    background-image: none;
+    filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src="payment_files/u22_line.png");
+}
+
+* html .u33_line {
+    background-image: none;
+    filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src="payment_files/u33_line.png");
+}
+

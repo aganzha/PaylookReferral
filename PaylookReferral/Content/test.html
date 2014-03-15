@@ -1,0 +1,39 @@
+<html>
+  <head>
+    <meta charset="UTF-8">
+  </head>
+  <body>
+    <h1>
+      This is test page.
+    </h1>
+
+    <p>
+      Paragraph 1
+    </p>
+   <script type="text/javascript">(function (ID, PaylookAccessToken, paylookDomain) {
+    var scripts = document.getElementsByTagName('script');
+    var me = scripts[scripts.length - 1];
+    var scr = document.createElement('script');
+    scr.id = "paylookLoader";
+    scr.type = "text/javascript";
+    scr.src = '//' + paylookDomain + "/Api/js/button/" + ID + ".js?returnUrl=" +
+    document.location.href;
+    var parts = document.location.href.split('?');
+    if (parts.length > 1) {
+        var pairs = parts[1].split('&');
+        for (var i = 0, l = pairs.length; i < l; i++) {
+            var pair = pairs[i];
+            var splitted = pair.split('=');
+            if (splitted[0] == PaylookAccessToken) {
+                scr.src += "&" + pair;
+            }
+        }
+    }
+    me.parentNode.insertBefore(scr, me);
+})('1', 'paylookaccesstoken', 'test.paylook.ru');</script>
+    <p>
+      Paeagraph 2
+    </p>
+
+  </body>
+</html>

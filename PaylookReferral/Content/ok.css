@@ -1,0 +1,77 @@
+﻿
+body
+{
+    font-family: 'PT Sans', Arial;
+    font-size: 12px;
+}
+
+#app {
+    display:none;
+}
+
+.container
+{
+    /*margin: 50px auto 0 auto;
+    padding-left: 15px;*/
+    display: block;
+    width: 600px;    
+    padding-left: 114px;
+    margin: 51px auto 0 auto
+
+}
+
+h1
+{
+    font-weight: bold;
+    font-size: 28px;
+    color: #5A3338;
+    margin: 0;
+    padding: 0;
+}
+
+.loader
+{
+    width: 484px;
+    border: solid 1px #ED9B32;
+    -webkit-border-radius: 6px;
+    -moz-border-radius: 6px;
+    border-radius: 6px;
+    font-size: 16px;
+    text-align: center;
+    margin: 18px 0;
+}
+
+.loader-content
+{
+    padding: 15px 40px 10px 40px;
+}
+
+.loader p
+{
+    margin: 2px 0 0 0;
+    padding: 0;
+}
+
+.btn
+{
+    background: url("images/button-arrow-left-slide-right.png") no-repeat scroll right top transparent;
+    display: block;
+    float: left;
+    font-size: 12px;
+    height: 27px;
+    margin-right: 0;
+    padding-right: 6px;
+    color: #000;
+    text-decoration: none;
+    font-size: 14px;
+    margin-left: -15px;
+}
+
+
+    .btn span
+    {
+        background: url("images/button-arrow-left-slide-left.png") no-repeat scroll 0 0 transparent;
+        display: block;
+        line-height: 27px;
+        padding: 0 2px 0 15px;
+    }

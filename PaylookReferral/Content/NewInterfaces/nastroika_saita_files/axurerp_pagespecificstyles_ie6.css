@@ -1,0 +1,10 @@
+﻿* html .u3_line {
+    background-image: none;
+    filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src="nastroika_saita_files/u3_line.png");
+}
+
+* html .u7_line {
+    background-image: none;
+    filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src="nastroika_saita_files/u7_line.png");
+}
+

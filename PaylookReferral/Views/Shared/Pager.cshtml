@@ -1,0 +1,110 @@
+﻿@model PayLook.Models.IPageOfList
+@{
+    var pageSizeSelected = false;
+    
+    //не показываем пейджер для одной страницы
+    if(!Model.HasNextPage && !Model.HasPreviousPage){
+        return;
+    }
+}
+
+<div class="table__nav">
+    <div class="table__view">
+        <strong>Показывать</strong>
+        @if (Model.PageSize == 10)
+        {
+            <a href="javascript:void(0);" class="active"><span>10</span></a> 
+        }
+        else
+        {
+            <a href="@Url.OverrrideQueryParams(new { pageSize = 10, page = 1 })"><span>10</span></a> 
+        }
+
+
+        @if (Model.PageSize == 50)
+        {
+            <a href="javascript:void(0);" class="active"><span>50</span></a> 
+        }
+        else
+        {
+            <a href="@Url.OverrrideQueryParams(new { pageSize = 50, page = 1 })"><span>50</span></a> 
+        }
+
+        @if (Model.PageSize == 200)
+        {
+            <a href="javascript:void(0);" class="active"><span>200</span></a> 
+        }
+        else
+        {
+            <a href="@Url.OverrrideQueryParams(new { pageSize = 200, page = 1 })"><span>200</span></a> 
+        }
+
+    </div>
+    <div class="table__pagination">
+
+        @if (Model.HasPreviousPage)
+        {
+            <a href="@Url.OverrrideQueryParams(new { page = Model.PageIndex + 1 - 1, pageSize = Model.PageSize })">← <span>назад</span></a>
+        }
+        else
+        {
+            
+            <a href="javascript:void(0);" class="disabled">← <span>назад</span></a>
+        }
+
+
+        @{
+            
+            int startInterval = (int)(Model.PageIndex + 1 - Model.VisibleInterval) + 1;
+            int endInterval = (int)Model.PageIndex + 1 + Model.VisibleInterval - 1;
+            if (startInterval < 1)
+            {
+                startInterval = 1;
+            }
+            if (endInterval > Model.TotalPageCount)
+            {
+                endInterval = Model.TotalPageCount;
+            }
+            if (startInterval > 1)
+            {
+
+                var prevPeriodEndPage = Model.PageIndex + 1 - 1;
+                var prevPeriodStartPage = prevPeriodEndPage - Model.VisibleInterval - 2;
+                if (prevPeriodStartPage < 1)
+                {
+                    prevPeriodStartPage = 1;
+                }
+            
+        
+            <a href="@Url.OverrrideQueryParams(new { page = prevPeriodEndPage - Model.VisibleInterval / 2 - 1, pageSize = Model.PageSize })" title="стр. @prevPeriodStartPage...@(prevPeriodEndPage + 1)" >...</a>
+
+            }
+            for (int i = startInterval; i <= endInterval; i++)
+            {
+            <a  class="@((i == Model.PageIndex + 1) ? "active" : "")" href="@Url.OverrrideQueryParams(new { page = i.ToString(), pageSize = Model.PageSize })" title="стр. @i" >@i</a>
+            }
+            if (endInterval < Model.TotalPageCount)
+            {
+                var nextPeriodStartPage = Model.PageIndex + 1 + 1;
+                var nextPeriodEndPage = nextPeriodStartPage + Model.VisibleInterval + 2;
+                if (nextPeriodEndPage > Model.TotalPageCount)
+                {
+                    nextPeriodEndPage = Model.TotalPageCount;
+                }
+            <a href="@Url.OverrrideQueryParams(new { page = nextPeriodStartPage + Model.VisibleInterval / 2 + 1, pageSize = Model.PageSize })" title="стр. @(nextPeriodStartPage - 1)...@nextPeriodEndPage">...</a>
+         
+            }
+        }
+
+        @if (Model.HasNextPage)
+        {
+            <a href="@Url.OverrrideQueryParams(new { page = Model.PageIndex + 1 + 1, pageSize = Model.PageSize })"><span>вперед</span> →</a>
+        }
+        else
+        {
+            <a class="disabled" href="javascript:void(0);"><span>вперед</span> →</a>
+        }
+
+
+    </div>
+</div>

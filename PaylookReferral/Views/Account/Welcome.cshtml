@@ -1,0 +1,23 @@
+﻿@model PayLook.Models.SitesModel
+@{    
+    Layout = "~/Views/Shared/_CabinetLayout.cshtml";
+    ViewBag.Title = "Все сайты";
+    var status = TempData["Status"] as string;
+    ViewBag.Facebook = true;
+}
+
+<div class="add-action">
+    <div class="add-action__title">Список сайтов</div>
+    <button class="btn-middle go" href="/Sites/AddSite?returnUrl=@this.Request.Url.AbsoluteUri"><strong>+ Добавить сайт</strong></button>
+</div>
+
+
+
+<div class="add-site">
+    <div class="add-site__info">
+        <div class="title"><span>Спасибо за регистрацию</span></div>
+        <p>Теперь вы можете добавлять сайты и создавать для них акции.</p>
+    </div>
+</div>
+
+

@@ -1,0 +1,24 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+    <meta http-equiv="content-Type" content="text/html; charset=utf-8" />
+    <link href="@Url.Content("~/Content/bootstrap.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Content/Admin.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Content/jquery-ui.css")" rel="stylesheet" type="text/css" />
+    <script src="@Url.Content("~/Scripts/jquery-1.7.1.min.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/accounting.min.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/jquery-ui-1.8.18.custom.min.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/modernizr-1.7.min.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/bootstrap.min.js")" type="text/javascript"></script>
+    <title>@ViewBag.Title</title>
+</head>
+<body>
+  
+     <div class="page">
+        @Html.Partial("AdminMenu")    
+        <div id="main">
+            @RenderBody()
+        </div>
+    </div>
+</body>
+</html>

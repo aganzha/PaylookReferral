@@ -1,0 +1,52 @@
+﻿@{            
+    var sites = ViewBag.Sites as Dictionary<long,string>;
+}
+
+<select id="siteSelect">
+    @foreach (var s in sites)
+    {
+        <option value="@s.Key"  @(s.Key == ViewBag.CurrentSiteId ? "selected" : "")>
+            @s.Value
+        </option>
+    }
+</select>
+<a href="/Sites/AddSite?ReturnUrl=@Request.Url.ToString()">+ Добавить сайт</a>
+<script type="text/javascript">
+    $(function () {
+        var select = $('#siteSelect');
+        var match = document.location.search.match(/siteId=([0-9]+)+/);        
+        var hasCurruentSite = @ViewBag.CurrentSiteId;        
+        if(hasCurruentSite && !match){            
+            // здесь текущий сайт вытаскивается из скрипта. Т.е. его в урле нет а в viewbag`е есть
+            // значит сайт менять не будем! в этолм нет смысла для мастера!.
+            var opts = select.children()
+            for(var i=0,l=opts.length;i<l;i++){
+                var op = $(opts[i]);
+                if(op.val()==select.val()){
+                    continue;
+                }
+                op.attr('disabled','disabled');
+            }
+        }        
+        select.change(function () {
+           
+            var val = select.val();            
+            var repl = "siteId=" + val;
+            if (val == "0") {
+                repl = "mock=true";
+            }                        
+            if (match) {                
+                var id = match[1];                
+                document.location.href=document.location.href.replace('siteId='+id, repl);                
+            }
+            else {                
+                var sep = "?";
+                if (document.location.href.match('\\?')) {
+                    sep = "&";
+                }
+                document.location.href = document.location.href += sep+ repl;
+            }
+        })
+    });
+
+</script>

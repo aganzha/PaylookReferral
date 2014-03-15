@@ -1,0 +1,531 @@
+﻿
+/*----------------------------------------------------------
+The base color for this template is #5c87b2. If you'd like
+to use a different color start by replacing all instances of
+#5c87b2 with your new color.
+----------------------------------------------------------*/
+body {
+}
+
+/* PRIMARY LAYOUT ELEMENTS   
+----------------------------------------------------------*/
+
+/* you can specify a greater or lesser percentage for the 
+page width. Or, you can specify an exact pixel width. */
+.page {
+    width: 94%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+header, #header {
+    position: relative;
+    margin-bottom: 0px;
+    color: #000;
+    padding: 0;
+}
+
+    header h1, #header h1 {
+    }
+
+#main {
+    /*padding: 30px 30px 15px 30px;*/
+    background-color: #fff;
+    border-radius: 4px 0 0 0;
+    -webkit-border-radius: 4px 0 0 0;
+    -moz-border-radius: 4px 0 0 0;
+}
+
+footer,
+#footer {
+    background-color: #fff;
+    color: #999;
+    padding: 10px 0;
+    text-align: center;
+    line-height: normal;
+    margin: 0 0 30px 0;
+    font-size: .9em;
+    border-radius: 0 0 4px 4px;
+    -webkit-border-radius: 0 0 4px 4px;
+    -moz-border-radius: 0 0 4px 4px;
+}
+
+.fc {
+    margin-top: 0 !important;
+}
+
+.lc {
+    margin-bottom: 0 !important;
+}
+
+.cr {
+    text-align: center;
+}
+
+/* TAB MENU   
+----------------------------------------------------------*/
+ul#menu {
+    border-bottom: 1px #5C87B2 solid;
+    padding: 0 0 2px;
+    position: relative;
+    margin: 0;
+    text-align: right;
+}
+
+    ul#menu li {
+        display: inline;
+        list-style: none;
+    }
+
+        ul#menu li#greeting {
+            padding: 10px 20px;
+            font-weight: bold;
+            text-decoration: none;
+            line-height: 2.8em;
+            color: #fff;
+        }
+
+        ul#menu li a {
+            padding: 10px 20px;
+            font-weight: bold;
+            text-decoration: none;
+            line-height: 2.8em;
+            background-color: #e8eef4;
+            color: #034af3;
+            border-radius: 4px 4px 0 0;
+            -webkit-border-radius: 4px 4px 0 0;
+            -moz-border-radius: 4px 4px 0 0;
+        }
+
+            ul#menu li a:hover {
+                background-color: #fff;
+                text-decoration: none;
+            }
+
+            ul#menu li a:active {
+                background-color: #a6e2a6;
+                text-decoration: none;
+            }
+
+        ul#menu li.selected a {
+            background-color: #fff;
+            color: #000;
+        }
+
+/* FORM LAYOUT ELEMENTS   
+----------------------------------------------------------*/
+
+
+/* TABLE
+----------------------------------------------------------*/
+
+
+/* MISC  
+----------------------------------------------------------*/
+.clear {
+    clear: both;
+}
+
+.error {
+    color: Red;
+}
+
+nav,
+#menucontainer {
+    margin-top: 40px;
+}
+
+div#title {
+    display: block;
+    float: left;
+    text-align: left;
+}
+
+#logindisplay {
+    font-size: 1.1em;
+    display: block;
+    text-align: right;
+    margin: 10px;
+    color: White;
+}
+
+    #logindisplay a:link {
+        color: white;
+        text-decoration: underline;
+    }
+
+    #logindisplay a:visited {
+        color: white;
+        text-decoration: underline;
+    }
+
+    #logindisplay a:hover {
+        color: white;
+        text-decoration: none;
+    }
+
+/* Styles for validation helpers
+-----------------------------------------------------------*/
+.field-validation-error {
+    color: #ff0000;
+}
+
+.field-validation-valid {
+    display: none;
+}
+
+.input-validation-error {
+    border: 1px solid #ff0000;
+    background-color: #ffeeee;
+}
+
+.validation-summary-errors {
+    font-weight: bold;
+    color: #ff0000;
+}
+
+.validation-summary-valid {
+    display: none;
+}
+
+/* Styles for editor and display helpers
+----------------------------------------------------------*/
+
+.admin-menu {
+    list-style-type: none;
+    position: fixed;
+    top: 0;
+    right: 0;
+    font-size: 12px;
+}
+
+    .admin-menu a {
+        color: #000;
+    }
+
+.admin-breadcrumbs {
+    margin: 20px 0;
+    padding: 0;
+}
+
+    .admin-breadcrumbs li {
+        display: inline;
+        list-style-type: none;
+        margin-right: 5px;
+    }
+
+/* Order Statuses
+----------------------------------------------------------*/
+.status-new {
+    color: #000;
+    font-weight: bold;
+}
+
+.status-processing {
+    color: #78B54A;
+    font-weight: bold;
+}
+
+.status-awaiting-payment {
+    color: #F82F2F;
+    font-weight: bold;
+}
+
+.status-paid {
+    color: #F36211;
+}
+
+.status-sent {
+    color: #00B3FF;
+}
+
+.status-notconfirmed {
+    color: #8732C0;
+}
+
+.status-canceled {
+    color: #999999;
+}
+
+.status-returned {
+    color: #95272D;
+}
+
+/* shopping-cart
+----------------------------------------------------------*/
+
+.shopping-cart td, .shopping-cart th {
+    text-align: left;
+}
+
+.shopping-cart th {
+    font-size: 12px;
+}
+
+.shopping-cart .total {
+    font-size: 21px;
+}
+
+.text-right {
+    text-align: right;
+}
+
+input.item-quantity, input.item-discount {
+    width: 25px;
+}
+
+input.item-price {
+    width: 50px;
+}
+
+
+/* GR Styling
+----------------------------------------------------------*/
+.icon-white {
+    margin-right: 5px;
+}
+
+.hidden-inputs {
+    padding: 9px 0;
+}
+
+.chzn-container-multi .chzn-choices {
+    border: 1px solid #cccccc;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    width: 530px;
+    padding-right: 5px;
+}
+
+.dataTable.table {
+    margin: 0 0 15px 0;
+}
+
+.dataTable.table {
+}
+
+.dataTables_wrapper table input, .dataTables_wrapper table select, .dataTables_wrapper table textarea {
+    margin: 0;
+    padding: 2px 3px 1px 3px;
+}
+
+.dataTables_wrapper table input, .dataTables_wrapper table textarea {
+    width: 94%;
+}
+
+.dataTables_length {
+    float: right;
+}
+
+.dataTables_filter {
+    float: none;
+}
+
+    .dataTables_length, .dataTables_length label, .dataTables_length select, .dataTables_filter, .dataTables_filter input, .dataTables_filter label {
+        display: inline;
+        margin-bottom: 15px;
+    }
+
+        .dataTables_filter input {
+            margin-bottom: 2px;
+        }
+
+        .dataTables_filter input {
+            height: 12px;
+            width: 400px;
+        }
+
+        .dataTables_length label {
+            line-height: 18px;
+        }
+
+        .dataTables_length select {
+            margin-bottom: 2px;
+        }
+
+.dataTables_paginate {
+    margin-bottom: 18px;
+    overflow: hidden;
+}
+
+.dataTables_info {
+    margin-bottom: 5px;
+}
+
+.paging_full_numbers a {
+    float: left;
+    padding: 0 14px;
+    line-height: 34px;
+    text-decoration: none;
+    border: 1px solid #ddd;
+    border-left-width: 0;
+    cursor: pointer;
+}
+
+.paging_full_numbers .paginate_active {
+    color: #999999;
+    cursor: default;
+    background-color: #f5f5f5;
+}
+
+.paging_full_numbers a:hover {
+    background-color: #f5f5f5;
+    text-decoration: none;
+}
+
+.paging_full_numbers > a:first-child {
+    border-left-width: 1px;
+    -webkit-border-radius: 3px 0 0 3px;
+    -moz-border-radius: 3px 0 0 3px;
+    border-radius: 3px 0 0 3px;
+}
+
+.paging_full_numbers > a:last-child {
+    -webkit-border-radius: 0 3px 3px 0;
+    -moz-border-radius: 0 3px 3px 0;
+    border-radius: 0 3px 3px 0;
+}
+
+.navbar {
+    overflow: visible;
+    margin-bottom: 18px;
+    margin-top: 15px;
+    margin-left: -5px;
+    margin-right: -5px;
+}
+
+.input-mini {
+    width: 90px !important;
+}
+
+.input-small {
+    width: 150px !important;
+}
+
+.input-medium {
+    width: 300px !important;
+}
+
+.input-large {
+    width: 600px !important;
+}
+
+.input-xlarge {
+    width: 700px !important;
+}
+
+.input-xxlarge {
+    width: 830px !important;
+}
+
+.input-mini-p {
+    width: 10% !important;
+}
+
+.input-small-p {
+    width: 20% !important;
+}
+
+.input-medium-p {
+    width: 50% !important;
+}
+
+.input-large-p {
+    width: 70% !important;
+}
+
+.input-xlarge-p {
+    width: 80% !important;
+}
+
+.input-xxlarge-p {
+    width: 100% !important;
+}
+
+.well {
+    padding: 14px;
+}
+
+.light-well {
+    padding: 20px 20px 10px 20px;
+    border: 1px solid lightgray;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+}
+
+select {
+    height: auto;
+    line-height: normal;
+    border: default;
+}
+
+.order table ul {
+    font-size: 12px;
+    margin: 5px 0 0 0;
+}
+
+.help-block {
+    margin-top: 0 !important;
+}
+
+h1 {
+    margin: 15px 0 10px 0;
+}
+
+h2 {
+    margin: 15px 0 10px 0;
+}
+
+h3 {
+    margin: 15px 0 10px 0;
+}
+
+h4 {
+    margin: 15px 0 10px 0;
+}
+
+.underline, a.special-link i, a.special-link:visited {
+    color: #2d509f;
+    text-decoration: none;
+    border-bottom: 1px solid #7E9AD9;
+}
+
+    .underline:visited {
+        border-bottom: 1px solid #c09dda;
+    }
+
+    .underline:hover, a.special-link:hover i {
+        color: #ed1c24;
+        border-bottom: 1px solid #ed1c24;
+        text-decoration: none;
+    }
+
+    .underline.dotted {
+        border-bottom: 1px dotted;
+    }
+
+.order-history tr td:first-child {
+    white-space: nowrap;
+}
+
+.testField {
+    border: 1px solid #555;
+    margin: 20px;
+    padding: 20px;
+}
+
+    .testField input {
+        margin-right: 20px;
+        margin-left: 5px;
+    }
+
+    .testField select {
+        margin-right: 20px;
+        margin-left: 5px;
+    }
+
+    .testField h6 span {
+        color: #b93b40;
+        font-size: 8px;
+    }

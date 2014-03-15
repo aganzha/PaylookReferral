@@ -9,28 +9,9 @@ namespace PaylookReferral.Controllers
     public class HomeController : Controller
     {
         public ActionResult Index()
-        {
-            ViewBag.Message = "Modify this template to jump-start your ASP.NET MVC application.";
-            using (var context = new Entities.Entities())
-            {
-                var cli = context.Clients.Where(cl => cl.Id == 4).FirstOrDefault();
-                ViewBag.FullName = cli.FullName;
-            }
+        {            
             return View();
         }
-
-        public ActionResult About()
-        {
-            ViewBag.Message = "Your app description page.";
-
-            return View();
-        }
-
-        public ActionResult Contact()
-        {
-            ViewBag.Message = "Your contact page.";
-
-            return View();
-        }
+       
     }
 }

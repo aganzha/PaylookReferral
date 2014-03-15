@@ -1,0 +1,96 @@
+﻿<p>
+    <a href="#goPost" id="goPostButton" data-toggle="modal"  style="display: none;" class="btn btn-normal social coupon yellow small">
+        <span class="scissors-small"></span><i id="goPostButtonText" class="front-small-icon- text">Получить купон
+            на скидку 3%</i>&nbsp;&nbsp;<i class="front-small-icon-facebook"></i>&nbsp;<i class="front-small-icon-vkontakte"></i>&nbsp;<i
+                class="front-small-icon-twitter"></i>&nbsp;<i class="front-small-icon-odnoklassniki"></i></a>
+</p>
+@*<p>
+    <a class="btn btn-normal social" style="display: none;" data-toggle="modal" data-loading-text="Получается скидка..."
+        href="#goPost" id="goPostButton"><i class="front-small-icon- text">Получить скидку 3%</i>&nbsp;&nbsp;<i
+            class="front-small-icon-facebook"></i>&nbsp;<i class="front-small-icon-vkontakte"></i>&nbsp;<i
+                class="front-small-icon-twitter"></i>&nbsp;<i class="front-small-icon-odnoklassniki"></i></a>
+</p>
+*@
+<p>
+    <a href="#goPost" id="showCouponButton" style="display: none;" data-toggle="modal"
+        class="btn btn-normal social coupon yellow small delivered"><span class="scissors-small">
+        </span><i class="front-small-icon- text">Посмотреть код купона на 3%</i> </a>
+</p>
+@*<p>
+    <a class="btn btn-normal social coupon" id="showCouponButton" style="display: none;"
+        data-toggle="modal" href="#showCoupon"><span class="left-hole"></span><span class="right-hole">
+        </span><i class="front-small-icon- text">Код купона на 3%</i>&nbsp;&nbsp;<i class="front-small-icon-facebook"></i>&nbsp;<i
+            class="front-small-icon-vkontakte"></i>&nbsp;<i class="front-small-icon-twitter"></i>&nbsp;<i
+                class="front-small-icon-odnoklassniki"></i></a>
+</p>*@
+<div class="modal hide fade in" id="goPost" style="display: none;">
+    <button data-dismiss="modal" class="close absolute" type="button">
+        ×</button>
+    <div style="padding: 25px 40px;" class="modal-body">
+        <h1>
+            Получить скидку 3%</h1>
+        <p>
+            <a id="paylookbyfb" href="#myModal" data-toggle="modal" class="btn btn-normal social facebook"><i
+                class="front-small-icon-facebook"></i>&nbsp;&nbsp;<i class="front-small-icon- text" id="paylookbyfbtext">Получить
+                    через <b>Facebook</b></i></a>
+        </p>
+        <p>
+            <a id="paylookbyvk" href="#myModal" data-toggle="modal" class="btn btn-normal social vkontakte"><i
+                class="front-small-icon-vkontakte"></i>&nbsp;&nbsp;<i class="front-small-icon- text" id="paylookbyvktext">Получить
+                    через <b>Вконтакте</b></i></a>
+        </p>
+      @*  <p>
+            <a href="#myModal" data-toggle="modal" class="btn btn-normal social twitter"><i class="front-small-icon-twitter">
+            </i>&nbsp;&nbsp;<i class="front-small-icon- text">Получить через <b>Twitter</b></i></a>
+        </p>
+        <p>
+            <a href="#myModal" data-toggle="modal" class="btn btn-normal social odnoklassniki"><i
+                class="front-small-icon-odnoklassniki"></i>&nbsp;&nbsp;<i class="front-small-icon- text">Получить
+                    через <b>Одноклассники</b></i></a>
+        </p>*@
+    </div>
+</div>
+@*<div id="goPost" class="modal hide fade" style="display: none;">
+    <button type="button" class="close absolute" data-dismiss="modal">
+        ×</button>
+    <div class="modal-body" style="padding: 25px 40px;">
+        <h1>
+            Получить скидку 3%</h1>
+        <p>
+            <a class="btn btn-normal social" id="paylookbyfb" data-toggle="modal" href="#myModal">
+                <i class="front-small-icon-facebook"></i>&nbsp;&nbsp;<i class="front-small-icon- text"
+                    id="paylookbyfbtext">Получить через <b>Facebook</b></i></a>
+        </p>
+        <p>
+            <a class="btn btn-normal social" id="paylookbyvk" data-toggle="modal" href="#myModal">
+                <i class="front-small-icon-vkontakte"></i>&nbsp;&nbsp;<i class="front-small-icon- text"
+                    id="paylookbyvktext">Получить через <b>Вконтакте</b></i></a>
+        </p>
+    </div>
+</div>*@
+<div id="showCoupon" class="modal hide fade" style="display: none;">
+    <button type="button" class="close absolute" data-dismiss="modal">
+        ×</button>
+    <div class="modal-body" style="padding: 25px 40px;">
+        <h1>
+            Спасибо, вот код вашего купона на&nbsp;скидку&nbsp;<span id="discountValue">3%</span></h1>
+        <div class="coupon-background" style="text-align: center; padding: 35px 0 0 0;">
+            <i class="top-tear"></i>
+            <h1 class="big-white-letters fc" id="couponCode">
+            </h1>
+            <p>
+                Сохраните этот код и введите в форму ввода кода купона при оформлении заказа</p>
+            <hr class="yellow-dashed lc" />
+        </div>
+        <div class="coupon-background fc" style="background-color: #FFB445">
+            <i class="bottom-tear"></i>
+            <p class="addenum fc lc" id="couponDateToCont">
+                Купон действует <b>до <span id='couponDateTo'>3 сентября 2012</span></b>, включительно</p>
+        </div>
+        <h3 style="margin: 15px 0 5px 0">
+            Отправить купон на e-mail?</h3>
+        <input type="text" class="input-xlarge" id="emailForCoupon" placeholder="Введите e-mail"><br />
+        <button class="btn btn-primary" id="btnSendEmail">
+            Отправить</button>
+    </div>
+</div>

@@ -1,0 +1,39 @@
+﻿<!doctype html>
+<!--[if lte IE 8]><html lang="ru-RU" class="lteie8"><![endif]-->
+<!--[if gt IE 8]><!-->
+<html lang="ru-RU">
+<!--<![endif]-->
+<head>
+    
+    <link rel="shortcut icon" href="/content/images/favicon.ico">
+    <link rel="stylesheet" href="/content/cabinet.css" type="text/css">
+    <link rel="stylesheet" href="/content/fonts.css" type="text/css">
+    <link rel="shortcut icon" href="/content/images/favicon.ico" type="image/x-icon" />
+    <script type="text/javascript" src="/scripts/jquery-1.9.1.min.js"></script>
+    <script src="@Url.Content("~/Scripts/jquery-ui-1.8.18.custom.min.js")" type="text/javascript"></script>
+
+    <title>@ViewBag.Title</title>
+</head>
+
+<body>
+    <div id="layout">
+
+        @Html.Partial("SiteSwitcher")
+        @Html.Partial("Navigation")
+
+        <div id="content">
+            @RenderBody()
+        </div>
+
+        <div id="footer">
+        </div>
+
+    </div>
+
+
+    <script type="text/javascript" src="/scripts/jquery.cookie.js"></script>
+    <script type="text/javascript" src="/scripts/jquery.json-2.3.min.js"></script>
+    <script type="text/javascript" src="/scripts/underscore-min.js"></script>
+</body>
+</html>
+

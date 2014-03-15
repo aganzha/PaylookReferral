@@ -1,48 +1,96 @@
-﻿<!DOCTYPE html>
+﻿<!doctype html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8" />
-        <title>@ViewBag.Title - My ASP.NET MVC Application</title>
-        <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
-        <meta name="viewport" content="width=device-width" />
-        @Styles.Render("~/Content/css")
-        @Scripts.Render("~/bundles/modernizr")
-    </head>
-    <body>
-        <header>
-            <div class="content-wrapper">
-                <div class="float-left">
-                    <p class="site-title">@Html.ActionLink("your logo here", "Index", "Home")</p>
-                </div>
-                <div class="float-right">
-                    <section id="login">
-                        @Html.Partial("_LoginPartial")
-                    </section>
-                    <nav>
-                        <ul id="menu">
-                            <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                            <li>@Html.ActionLink("About", "About", "Home")</li>
-                            <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
-                        </ul>
-                    </nav>
-                </div>
-            </div>
-        </header>
-        <div id="body">
-            @RenderSection("featured", required: false)
-            <section class="content-wrapper main-content clear-fix">
-                @RenderBody()
-            </section>
+<head>
+    <meta http-equiv="content-Type" content="text/html; charset=utf-8" />
+    <!--meta http-equiv="X-UA-Compatible" content="IE=EmulateIE9" -->
+    <meta name="description" content="">
+    <meta name="author" content="Кружок умелые ручки">
+    <link rel="shortcut icon" href="/content/images/favicon.ico">
+    <link rel="stylesheet" href="/content/coupon.css" type="text/css">
+    <link rel="stylesheet" href="/content/fonts.css" type="text/css">
+    <link rel="stylesheet" href="/content/layout.css" type="text/css">
+    <link rel="shortcut icon" href="/content/images/favicon.ico" type="image/x-icon" />
+    <script type="text/javascript" src="/scripts/jquery-1.9.1.min.js"></script>
+    <!--[if lte IE 7]><link href="/content/ie.css" rel="stylesheet" type="text/css"><![endif]-->
+    <!--[if IE 6]>
+        <link href="/content/ie6.css" rel="stylesheet" type="text/css">
+        <![endif]-->
+    <title>@ViewBag.Title</title>
+</head>
+<body>
+    <div id="layout">
+        <!-- header -->
+        <div id="header">
         </div>
-        <footer>
-            <div class="content-wrapper">
-                <div class="float-left">
-                    <p>&copy; @DateTime.Now.Year - My ASP.NET MVC Application</p>
-                </div>
-            </div>
-        </footer>
+        <!-- eof header -->
+        <!-- content -->
+        <div id="content">
+            @RenderBody()
+        </div>
+        <!-- eof content -->
+        <!-- footer -->
+        <div id="footer">
+        </div>
+        <!-- eof footer -->
+    </div>
+    <!-- eof layout -->
 
-        @Scripts.Render("~/bundles/jquery")
-        @RenderSection("scripts", required: false)
-    </body>
+    <script type="text/javascript" src="/scripts/jquery.cookie.js"></script>
+    <script type="text/javascript" src="/scripts/jquery.json-2.3.min.js"></script>
+    @*<script type="text/javascript" src="/scripts/jquery.ba-bbq.min.js"></script>*@
+    <script type="text/javascript" src="/scripts/underscore-min.js"></script>
+    <script type="text/javascript">
+
+        $(function () {
+            var validateEmail = function (elementValue) {
+                var emailPattern = /^([A-Za-z0-9_\-\.])+\@@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
+                return emailPattern.test(elementValue);
+            };
+            function getUrlVars()
+            {
+                var vars = [], hash;
+                var hashes = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');
+                for(var i = 0; i < hashes.length; i++)
+                {
+                    hash = hashes[i].split('=');
+                    vars.push(hash[0]);
+                    vars[hash[0]] = hash[1];
+                }
+                return vars;
+            };
+
+            $('#btnSendEmail').click(function () {
+
+                var btn = $(this);
+
+                var code = $('#couponCode').html();
+                var email = $('#emailForCoupon').val();
+                var returnUrl = getUrlVars()['returnUrl'];
+
+                if (!validateEmail(email)) {
+                    alert('Указан неверный email');
+                    return;
+                }
+
+                btn.attr("disabled", "true");
+                $.post('/sendemail', {
+                    code: code, email: email, scriptId: scriptId, returnUrl: returnUrl, paylookaccesstoken: paylookaccesstoken
+                }, function (data) {
+                    if (data.emailsent === true) {
+                        //alert('Код купона успешно отправлен на email');
+                        $('#emailMessage').show();
+                        $('#emailSentTo').html(email);
+                    }
+                    else {
+                        alert('Код купона отправить не удалось');
+                    }
+                    btn.removeAttr("disabled");
+                });
+            });
+        });
+
+    </script>
+
+@Html.Partial("Analytics")
+</body>
 </html>

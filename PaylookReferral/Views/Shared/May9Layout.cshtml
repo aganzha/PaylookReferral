@@ -1,0 +1,104 @@
+﻿<!doctype html>
+<!-- a long time ago in a galaxy far, far away...  -->
+<html lang="en">
+<head>
+    <meta http-equiv="content-Type" content="text/html; charset=utf-8" />
+    <!--meta http-equiv="X-UA-Compatible" content="IE=EmulateIE9" -->
+    <meta name="description" content="">
+    <meta name="author" content="Кружок умелые ручки">
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="/content/may9layout.css" type="text/css">
+    <link rel="stylesheet" href="/content/may9fonts.css" type="text/css">
+    <!--[if lte IE 7]><link href="content/ie.css" rel="stylesheet" type="text/css"><![endif]-->
+    <!--[if IE 6]>
+        <link href="content/ie6.css" rel="stylesheet" type="text/css">
+        <![endif]-->
+    <title>Выбор соцсети — Paylook</title>
+    <script type="text/javascript" src="/scripts/jquery-1.9.1.min.js"></script>
+</head>
+<body>
+    <div id="layout">
+
+
+        <div class="pl-backtosite">
+            <a class="backtosite-crossed" href="@Request.Params["returnUrl"]">Закрыть и вернуться на сайт</a>
+        </div>
+
+        <div class="pl-body">
+            @RenderBody()
+        </div>
+
+        <div class="pl-envelope">
+            <div class="wrapper">
+                <div class="pl-envelope-loader" id="discountProgress">
+                    <p>Подождите, пожалуйста...</p>
+                    <img class="loader-img" src="/content/images/loader.gif" width="83" height="16" title="Подождите, пожалуйста…">
+                </div>
+                <div class="pl-envelope-copyright">
+                    <hr class="hr-divider dotted" />
+                    <p>Сервис работает благодаря <a target="_blank" href="http://www.paylook.ru/">Paylook</a></p>
+                </div>
+            </div>
+        </div>
+
+        <div class="pl-envelope-shadow"></div>
+
+    </div>
+    <script type="text/javascript" src="/scripts/jquery.cookie.js"></script>
+    <script type="text/javascript" src="/scripts/jquery.json-2.3.min.js"></script>
+    @*<script type="text/javascript" src="/scripts/jquery.ba-bbq.min.js"></script>*@
+    <script type="text/javascript" src="/scripts/underscore-min.js"></script>
+    <script type="text/javascript">
+
+        $(function () {
+            // уехало в GetCoupon.js
+            //var validateEmail = function (elementValue) {
+            //    var emailPattern = /^([A-Za-z0-9_\-\.])+\@@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
+            //    return emailPattern.test(elementValue);
+            //};
+            //function getUrlVars() {
+            //    var vars = [], hash;
+            //    var hashes = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');
+            //    for (var i = 0; i < hashes.length; i++) {
+            //        hash = hashes[i].split('=');
+            //        vars.push(hash[0]);
+            //        vars[hash[0]] = hash[1];
+            //    }
+            //    return vars;
+            //};
+
+            //$('#btnSendEmail').click(function () {
+
+            //    var btn = $(this);
+
+            //    var code = $('#couponCode').html();
+            //    var email = $('#emailForCoupon').val();
+            //    var returnUrl = getUrlVars()['returnUrl'];
+
+            //    if (!validateEmail(email)) {
+            //        alert('Указан неверный email');
+            //        return;
+            //    }
+
+            //    btn.attr("disabled", "true");
+            //    $.post('/sendemail', {
+            //        code: code, email: email, scriptId: scriptId, returnUrl: returnUrl, paylookaccesstoken: paylookaccesstoken
+            //    }, function (data) {
+            //        if (data.emailsent === true) {
+            //            //alert('Код купона успешно отправлен на email');
+            //            $('#emailMessage').show();
+            //            $('#emailSentTo').html(email);
+            //        }
+            //        else {
+            //            alert('Код купона отправить не удалось');
+            //        }
+            //        btn.removeAttr("disabled");
+            //    });
+            //});
+        });
+
+    </script>
+
+    @Html.Partial("Analytics")
+</body>
+</html>
